@@ -1,0 +1,47 @@
+[project]
+name = "fastapi-course"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "joaovitorpiccolo", email = "joaovitorpiccolo015@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+
+dependencies = [
+    "fastapi[standard] (>=0.115.12,<0.116.0)"
+]
+
+[tool.poetry]
+packages = [{include = "fastapi_course", from = "src"}]
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.11.7"
+pytest = "^8.3.5"
+pytest-cov = "^6.1.1"
+taskipy = "^1.14.1"
+
+[tool.pytest.ini_options]
+pythonpath = '.'
+addopts = '-p no:warnings'
+
+[tool.ruff]
+line-length = 79
+extend-exclude = ['migrations']
+
+[toll.ruff.lint]
+preview = true
+select = ['I', 'F', 'E', 'W', 'PL', 'PT']
+
+[tool.taskipy.tasks]
+run = 'fastapi dev src/fastapi_course/app.py'
+test = 'pytest --cov=src/fastapi_course -vv'
+lint = 'ruff check . && ruff check . --diff'
+format = 'ruff check . --fix && ruff format .'
+htmlcov = 'start "C:\Users\janj\AppData\Local\Programs\Opera GX\opera.exe" C:\Users\janj\fastAPI_course\htmlcov\index.html'
+post_test = 'coverage html'
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
