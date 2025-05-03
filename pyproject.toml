@@ -2,9 +2,7 @@
 name = "fastapi-course"
 version = "0.1.0"
 description = ""
-authors = [
-    {name = "joaovitorpiccolo", email = "joaovitorpiccolo015@gmail.com"}
-]
+authors = [ {name = "joaovitorpiccolo", email = "joaovitorpiccolo015@gmail.com"} ]
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 
