@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi_course.schemas import *
 from http import HTTPStatus
+
 app = FastAPI()
 
 database = []
@@ -40,4 +41,10 @@ def update_user(user_id: int, user: User):
     return r_user_with_id
 
 
-# [UserDB(username='Zézão', email='emaildozé@emaildoze.com', password='senha_do_zé123', id=1)]
+@app.delete('/users/{user_id}', response_model=Message)
+def delete_user(user_id: int):
+    if user_id < 1 or user_id > len(database):
+        raise HTTPException(status_code=404, detail='User not found')
+
+    del database[user_id - 1]
+    return {'message': 'User deleted'}

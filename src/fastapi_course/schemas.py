@@ -15,6 +15,10 @@ class UserDB(User):
     id: int
 
 
+class UserPassword(BaseModel):
+    password: str
+
+
 class UserPublic(BaseModel):
     id: int
     username: str
