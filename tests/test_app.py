@@ -12,13 +12,13 @@ def test_read_root(client):  # "Deve retornar OK e Hello World!"
 
 
 def test_create_user(client):
-    json = {'username': 'testusername', 'password': 'passwordtest12', 'email': 'emaildozé@emaildoze.com'}
+    json = {'username': 'Zézão', 'password': 'senha_do_zé123', 'email': 'emaildozé@emaildoze.com'}
 
     response = client.post('/users/', json=json)
 
     assert response.status_code == HTTPStatus.CREATED
 
-    assert response.json() == {'username': 'testusername', 'email': 'emaildozé@emaildoze.com', 'id': 1}
+    assert response.json() == {'username': 'Zézão', 'email': 'emaildozé@emaildoze.com', 'id': 1}
 
 
 def test_read_user(client):
@@ -27,6 +27,15 @@ def test_read_user(client):
     assert response.status_code == HTTPStatus.OK
 
     assert response.json() == {'users': [
-        {'username': 'testusername', 'email': 'emaildozé@emaildoze.com', 'id': 1}
+        {'username': 'Zézão', 'email': 'emaildozé@emaildoze.com', 'id': 1}
     ]}
 
+
+def test_update_user(client):
+    json = {'username': 'Zézinho', 'email': 'emaildofihdoze@emaildofihdoze.com', 'password': 'filhodozé321'}
+
+    response = client.put('/users/1', json=json)
+
+    assert response.status_code == HTTPStatus.OK
+
+    assert response.json() == {'id': 1, 'username': 'Zézinho', 'email': 'emaildofihdoze@emaildofihdoze.com'}
