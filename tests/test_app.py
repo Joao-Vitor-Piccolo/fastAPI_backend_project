@@ -7,7 +7,7 @@ def test_read_root(client):  # "Deve retornar OK e Hello World!"
 
     assert response.status_code == HTTPStatus.OK  # Assert (Afirmação)
 
-    assert response.json() == {'message': 'Hello World!'}  # Assert de afirmação que confirma
+    assert response.json() == {'message': 'Essa é a root do programa'}  # Assert de afirmação que confirma
     # se o resultado do request foi "Hello World"
 
 
