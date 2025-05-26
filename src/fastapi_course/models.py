@@ -9,7 +9,7 @@ class Base(DeclarativeBase):
     updated_at = sa.Column(sa.DateTime, nullable=False, server_default=sa.func.now(), onupdate=sa.func.now())
 
 
-class User(Base):
+class UserDB(Base):
     __tablename__ = 'users'
     username = sa.Column(sa.String, nullable=False, unique=True)
     password = sa.Column(sa.String, nullable=False)

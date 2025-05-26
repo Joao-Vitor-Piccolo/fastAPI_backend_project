@@ -9,13 +9,13 @@ class MessagePassword(BaseModel):
     password: str
 
 
-class User(BaseModel):
+class User_Schema(BaseModel):
     username: str
     email: EmailStr
     password: str
 
 
-class UserDB(User):
+class UserDB(User_Schema):
     id: int
 
 
