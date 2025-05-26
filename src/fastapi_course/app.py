@@ -3,9 +3,9 @@ from fastapi_course.schemas import *
 from http import HTTPStatus
 from sqlalchemy.orm import Session
 from fastapi_course.database import get_session
-from sqlalchemy import select
+from sqlalchemy import select, create_engine
 from fastapi_course.models import UserDB
-
+from fastapi_course.settings import Settings
 app = FastAPI()
 
 database = []
@@ -20,14 +20,21 @@ def read_root():
 # o decorators para um metodo POST
 
 @app.post('/users/', status_code=HTTPStatus.CREATED, response_model=Message)
-def create_user(user: User_Schema, session: Session = Depends(get_session)):
+def create_user(user: User_Schema):
+    engine = create_engine(Settings().DATABASE_URL)
+    session = Session(engine)
+    session.begin()
     db_user = session.scalar(select(UserDB).where((UserDB.username == user.username) | (UserDB.email == user.email)))
     if db_user:
+        session.close()
         raise HTTPException(status_code=HTTPStatus.CONFLICT, detail='Email or Username Already exists')
     else:
+
         db_user = UserDB(username=user.username, email=user.email, password=user.password)
         session.add(db_user)
         session.commit()
+        session.refresh(db_user)
+        session.close()
         return {'message': 'User created!'}
 
 

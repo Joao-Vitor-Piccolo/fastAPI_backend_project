@@ -3,15 +3,20 @@ from fastapi_course.models import Base
 from sqlalchemy.orm import Session
 from src.fastapi_course.app import app
 from fastapi.testclient import TestClient
-from contextlib import contextmanager
 from datetime import datetime
 from sqlalchemy import create_engine, event
 from fastapi_course.models import UserDB
+from fastapi_course.database import get_session
 
 
 @pytest.fixture()
 def client():
-    return TestClient(app)
+    def get_session_override():
+        return session
+    with TestClient(app) as client:
+        app.dependency_overrides[get_session] = get_session_override
+        yield client
+    app.dependency_overrides.clear()
 
 
 @pytest.fixture()
