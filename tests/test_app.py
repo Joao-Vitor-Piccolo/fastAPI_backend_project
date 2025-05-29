@@ -11,7 +11,7 @@ def test_read_root(client):  # "Deve retornar OK e Hello World!"
     # se o resultado do request foi "Hello World"
 
 
-def test_create_user(client):
+def test_create_user(client):  # Cria o usuario Pinoccio
     json = {'username': 'Pinoccio',
             'email': 'pinoccio@gmail.com',
             'password': 'senha_do_pinoccio'}
@@ -23,14 +23,20 @@ def test_create_user(client):
     assert response.json() == {'message': 'User created!'}
 
 
-# def test_read_user(client):
-#     response = client.get('/users/')
-#
-#     assert response.status_code == HTTPStatus.OK
-#
-#     assert response.json() == {'users': [
-#         {'username': 'Zézão', 'email': 'emaildozé@emaildoze.com', 'id': 1}
-#     ]}
+def test_read_empty_user(client):  # Testa se o json retornado é vazio, pois não foi adicionado nenhum usuario
+    response = client.get('/users/')
+    assert response.status_code == HTTPStatus.OK
+
+    assert response.json() == {'users': []}
+
+
+def test_read_user(client, create_default_user):  # Recebe uma fixture que cria um usuario default
+    response = client.get('/users/1')
+
+    assert response.status_code == HTTPStatus.OK
+    assert response.json() == {'email': 'default@email.com',
+                               'username': 'default_name',
+                               'id': 1}
 
 #
 # def test_update_user(client):

@@ -32,9 +32,13 @@ def create_user(user: User_Schema, session=Depends(get_session)):
         return {'message': 'User created!'}
 
 
-@app.get('/users/', response_model=UserList)
-def read_users():
-    return {'users': database}
+@app.get('/users/', response_model=UserPublic, status_code=HTTPStatus.OK)
+# query_limit: int = 10 Cria um query
+# parameter personalizavel que tem como padrão 10 resultados
+
+def read_users(query_limit: int = 10, session=Depends(get_session)):
+    db_user = session.scalars(select(UserDB).limit(limit=query_limit))
+    return {'users': db_user}
 
 
 @app.put('/users/{user_id}', response_model=UserPublic)

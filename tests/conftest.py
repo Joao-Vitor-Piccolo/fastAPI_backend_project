@@ -7,10 +7,11 @@ from datetime import datetime
 from sqlalchemy import create_engine, event
 from fastapi_course.models import UserDB
 from fastapi_course.database import get_session
+from sqlalchemy.pool import StaticPool
 
 
 @pytest.fixture()
-def client(session):
+def client(session):  # Usa a fixture de session que possui o SQLite em memoria
     def get_session_override():  # Nós criamos a função pois o Depends() pede extritamente uma function
         return session
 
@@ -22,7 +23,11 @@ def client(session):
 
 @pytest.fixture()
 def session():
-    engine = create_engine('sqlite:///:memory:')
+    engine = create_engine('sqlite:///:memory:',
+                           connect_args={'check_same_thread': False},  # Remove a restrição de multithread do Sqlite
+                           poolclass=StaticPool
+                           )
+
     Base.metadata.create_all(engine)
     with Session(engine) as session:
         yield session
@@ -38,6 +43,7 @@ def create_default_user(session):
         if hasattr(target, 'updated_at'):
             target.updated_at = datetime(day=12, month=12, year=2012)
 
-    user = UserDB(username='jorge', email='janjo@janjomail.com', password='senhaboa123')
+    user = UserDB(username='default_name', email='default@email.com', password='default_password')
     session.add(user)
     session.commit()
+    session.refresh(user)

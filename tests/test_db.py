@@ -28,6 +28,7 @@ def test_create_user(session):
                       'created_at': time,
                       'updated_at': time
                       }
+
     event.remove(UserDB, 'before_insert', listen_time)
 
 
