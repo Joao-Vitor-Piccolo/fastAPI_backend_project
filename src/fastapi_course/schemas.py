@@ -15,12 +15,8 @@ class User_Schema(BaseModel):
     password: str
 
 
-class UserDB(User_Schema):
-    id: int
-
-
-class UserPassword(BaseModel):
-    password: str
+class UserUpdate(User_Schema):
+    old_password: str
 
 
 class UserPublic(BaseModel):

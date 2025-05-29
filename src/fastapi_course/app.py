@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException, Depends
 from fastapi_course.schemas import *
 from http import HTTPStatus
 from fastapi_course.database import get_session
-from sqlalchemy import select
+from sqlalchemy import select, delete
 from fastapi_course.models import UserDB
 
 app = FastAPI()
@@ -24,7 +24,6 @@ def create_user(user: User_Schema, session=Depends(get_session)):
     if db_user:
         raise HTTPException(status_code=HTTPStatus.CONFLICT, detail='Email or Username Already exists')
     else:
-
         db_user = UserDB(username=user.username, email=user.email, password=user.password)
         session.add(db_user)
         session.commit()
@@ -32,42 +31,41 @@ def create_user(user: User_Schema, session=Depends(get_session)):
         return {'message': 'User created!'}
 
 
-@app.get('/users/', response_model=UserPublic, status_code=HTTPStatus.OK)
+@app.get('/users/', response_model=UserList, status_code=HTTPStatus.OK)
 # query_limit: int = 10 Cria um query
 # parameter personalizavel que tem como padrão 10 resultados
 
-def read_users(query_limit: int = 10, session=Depends(get_session)):
+def read_users(query_limit: int = 1, session=Depends(get_session)):
     db_user = session.scalars(select(UserDB).limit(limit=query_limit))
     return {'users': db_user}
 
 
-@app.put('/users/{user_id}', response_model=UserPublic)
-def update_user(user_id: int, user: User_Schema):
-    if user_id < 1 or user_id > len(database):
-        raise HTTPException(status_code=404, detail='User not found')
+@app.put('/users/{user_id}', response_model=Message, status_code=HTTPStatus.OK)
+def update_user(user_id: int, user: UserUpdate, session=Depends(get_session)):
+    db_user = session.scalar(select(UserDB).where(user_id == UserDB.id))
+    if not db_user:
+        raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail='User not found')
 
-    if database[user_id - 1].password != user.password:
-        raise HTTPException(status_code=401, detail='Not the same password')
+    if db_user.password != user.old_password:
+        raise HTTPException(status_code=HTTPStatus.UNAUTHORIZED, detail='Not the same password')
 
-    r_user_with_id = UserDB(**user.model_dump(), id=user_id)
-    database[user_id - 1] = r_user_with_id
-    print(database)
-    print(r_user_with_id)
-    return r_user_with_id
+    db_user.password = user.password
+    db_user.username = user.username
+    db_user.email = user.email
+    session.commit()
+    session.refresh(db_user)
+    return {'message': 'user updated!'}
 
 
 @app.delete('/users/{user_id}', response_model=Message)
-def delete_user(user_id: int):
-    if user_id < 1 or user_id > len(database):
-        raise HTTPException(status_code=404, detail='User not found')
+def delete_user(user_id: int, user: User_Schema, session=Depends(get_session)):
+    db_user = session.scalar(select(UserDB).where(user_id == UserDB.id))
+    if not db_user:
+        raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail='User not found')
 
-    del database[user_id - 1]
-    return {'message': 'User deleted'}
+    if not (db_user.password == user.password and db_user.username == user.username and db_user.email == user.email):
+        raise HTTPException(status_code=HTTPStatus.UNAUTHORIZED, detail='Not the same email, username or password')
 
-
-@app.get('/users/getpassword/{user_id}', response_model=MessagePassword)
-def get_password(user_id: int):
-    if user_id < 1 or user_id > len(database):
-        raise HTTPException(status_code=404, detail='User not found')
-
-    return {'password': database[user_id - 1].password}
+    session.execute(delete(UserDB).where(UserDB.id == user_id))
+    session.commit()
+    return {'message': 'User deleted!'}

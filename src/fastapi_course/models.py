@@ -1,6 +1,5 @@
 from sqlalchemy.orm import DeclarativeBase
 import sqlalchemy as sa
-import datetime
 
 
 class Base(DeclarativeBase):
