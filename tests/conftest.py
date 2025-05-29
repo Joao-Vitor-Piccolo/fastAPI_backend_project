@@ -10,13 +10,14 @@ from fastapi_course.database import get_session
 
 
 @pytest.fixture()
-def client():
-    def get_session_override():
+def client(session):
+    def get_session_override():  # Nós criamos a função pois o Depends() pede extritamente uma function
         return session
+
     with TestClient(app) as client:
         app.dependency_overrides[get_session] = get_session_override
         yield client
-    app.dependency_overrides.clear()
+    app.dependency_overrides.clear()  # Serve para outros testes não acabarem usando o override acima sem querer
 
 
 @pytest.fixture()

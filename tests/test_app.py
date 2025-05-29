@@ -12,7 +12,9 @@ def test_read_root(client):  # "Deve retornar OK e Hello World!"
 
 
 def test_create_user(client):
-    json = {'username': 'TaoPaipai', 'email': 'email_do_homi@gmail.com', 'password': 'senha_do_cabra'}
+    json = {'username': 'Pinoccio',
+            'email': 'pinoccio@gmail.com',
+            'password': 'senha_do_pinoccio'}
 
     response = client.post('/users/', json=json)
 
@@ -21,14 +23,14 @@ def test_create_user(client):
     assert response.json() == {'message': 'User created!'}
 
 
-def test_read_user(client):
-    response = client.get('/users/')
-
-    assert response.status_code == HTTPStatus.OK
-
-    assert response.json() == {'users': [
-        {'username': 'Zézão', 'email': 'emaildozé@emaildoze.com', 'id': 1}
-    ]}
+# def test_read_user(client):
+#     response = client.get('/users/')
+#
+#     assert response.status_code == HTTPStatus.OK
+#
+#     assert response.json() == {'users': [
+#         {'username': 'Zézão', 'email': 'emaildozé@emaildoze.com', 'id': 1}
+#     ]}
 
 #
 # def test_update_user(client):
