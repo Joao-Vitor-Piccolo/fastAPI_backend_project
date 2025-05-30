@@ -118,17 +118,16 @@ def test_update_user_UNAUTHORIZED(client, create_default_user):
     assert response.json() == {'detail': 'Not the same password'}
 
 
-def test_delete_user(client):
-    response = client.delete('/users/1')
+def test_delete_user(client, create_default_user):
+    json = {'username': 'default_name',
+            'email': 'default@email.com',
+            'password': 'default_password'}
+
+    response = client.request(
+        method="DELETE",
+        url="/users/1",
+        json=json
+    )
 
     assert response.status_code == HTTPStatus.OK
-
-    assert response.json() == {'message': 'User deleted'}
-#
-#
-# def test_delete_exception_error_user_not_found(client):
-#     response = client.delete('/users/2')
-#
-#     assert response.status_code == HTTPStatus.NOT_FOUND
-#
-#     assert response.json() == {'detail': 'User not found'}
+    assert response.json() == {'message': 'User deleted!'}

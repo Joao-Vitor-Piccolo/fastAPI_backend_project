@@ -57,7 +57,7 @@ def update_user(user_id: int, user: UserUpdate, session=Depends(get_session)):
     return {'message': 'user updated!'}
 
 
-@app.delete('/users/{user_id}', response_model=Message)
+@app.delete('/users/{user_id}', response_model=Message, status_code=HTTPStatus.OK)
 def delete_user(user_id: int, user: User_Schema, session=Depends(get_session)):
     db_user = session.scalar(select(UserDB).where(user_id == UserDB.id))
     if not db_user:
