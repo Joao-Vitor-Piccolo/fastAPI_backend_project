@@ -1,11 +1,19 @@
+import os
+
 from fastapi import FastAPI, HTTPException, Depends
 from fastapi_course.schemas import *
 from http import HTTPStatus
 from fastapi_course.database import get_session
 from sqlalchemy import select, delete
 from fastapi_course.models import UserDB
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
+
+current_dir = os.path.dirname(__file__)
+static_dir = os.path.join(current_dir, "../static_files")
+
+app.mount("/static", StaticFiles(directory=static_dir, html=True), name="static")
 
 
 @app.get('/', status_code=HTTPStatus.OK, response_model=Message)
