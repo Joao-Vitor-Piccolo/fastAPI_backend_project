@@ -7,8 +7,6 @@ from fastapi_course.models import UserDB
 
 app = FastAPI()
 
-database = []
-
 
 @app.get('/', status_code=HTTPStatus.OK, response_model=Message)
 def read_root():
