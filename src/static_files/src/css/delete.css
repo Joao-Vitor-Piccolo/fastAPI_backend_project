@@ -1,0 +1,21 @@
+@import url('cadastro.css');
+
+.form-container.delete {
+  border: 2px solid #740202;
+  background-color: #111213;
+}
+
+.delete-btn {
+  background-color: #520202;
+  color: #e8e6e3;
+  font-weight: bold;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #df3b3b;
+}
