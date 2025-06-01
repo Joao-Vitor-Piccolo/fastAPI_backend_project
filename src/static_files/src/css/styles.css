@@ -1,114 +1,110 @@
-* {
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+main{
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+body, html{
+  height: 100%;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+  font-family: sans-serif;
 }
 
-html, body {
-  height: 100%;
-  background: #181a1b;
-  color: #e8e6e3;
+.form-container h1{
+    padding: 5%;
+    font-size: 45px;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 1rem;
+.form-container{
+    background: black;
+    color: white;
+    height: 100vh;
+    text-align: center;
+    flex: 0 0 45%;
+
 }
 
-.home-container{
+.form-container .form{
+    margin: 5% auto;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    text-align: left;
+}
+
+.form-container label{
+    margin-bottom: 10px;
+    font-size: small;
+}
+
+.form-container a{
+    text-align: right;
+    color: rgba(255, 255, 255, 0.685);
+    text-decoration: underline;
+    font-size: small;
+    text-align: left;
+}
+
+.form-container a:hover{
+    color: rgb(51, 60, 146);
+    text-decoration: underline;
+}
+
+.form input{
+    padding: 20px;
+    background-color: rgb(37, 37, 37);
+    border: 2px solid;
+    border-image: linear-gradient(90deg, rgb(133, 120, 2) 0%, rgb(121, 59, 9) 35%, rgb(143, 81, 0) 100%) 1;
+    color: transparent;
+}
+
+.form label{
+    margin-top: 20px;
+}
+
+
+.right-side {
+    flex: 0 0 55%;
+  position: relative;
+  background-image: url('../assets/gif/backgroud_video.gif');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.right-side .overlay {
+  position: absolute;
   width: 100%;
-  max-width: 600px;
-  background: #111213;
-  border-radius: 14px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  padding: 2rem 1.2rem;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
 
-.home-container h1 {
-  font-size: 2rem;
-  color: #3391ff;
-  font-weight: 700;
-  margin-bottom: 0.6rem;
+.form-container button:hover{
+    background-color: rgb(94, 93, 93);
+    cursor: pointer;
+    color: black;
+
 }
 
-.home-container p {
-  font-size: 1rem;
-  color: #b2aba1;
-  margin-bottom: 1.6rem;
+.form-container button{
+    background-color: rgb(223, 124, 31);
+    color: white;
+    margin-top: 14%;
+    padding: 20px;
+    font-size: larger;
+    border: none;
+    border-radius: 3%;
 }
 
-.home-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
-}
-
-.home-card {
-  background: #1e2021;
-  border-radius: 12px;
-  padding: 1.5rem 1rem;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
-  text-decoration: none;
-  color: #d3cfc9;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 120px;
-}
-
-.home-card h2 {
-  font-size: 1.3rem;
-  margin-bottom: 0.4rem;
-  color: #e8e6e3;
-}
-
-.home-card p {
-  font-size: 0.95rem;
-  font-weight: 400;
-  color: #9e9589;
-  text-align: center;
-}
-
-.home-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
-}
-
-.delete-link {
-  color: #e46969;
-  border: 2px solid #740202;
-  transition: background-color 0.25s ease, color 0.25s ease;
-}
-
-.delete-link:hover {
-  background-color: #520202;
-  color: #df3b3b;
-}
-
-
-@media (max-width: 360px) {
-  .home-container h1 {
-    font-size: 1.6rem;
-  }
-
-  .home-card h2 {
-    font-size: 1.1rem;
-  }
-
-  .home-card {
-    padding: 1.2rem 0.8rem;
-  }
-
-  .home-container {
-    padding: 1.5rem 0.8rem;
-  }
+.form-container #id_botao{
+    margin-top: 3%;
+    text-align: center;
 }
