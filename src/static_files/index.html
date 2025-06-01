@@ -1,42 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>API - Home</title>
-    <link rel="stylesheet" href="./src/css/styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>API - Home</title>
+  <link rel="stylesheet" href="./src/css/styles1.css" />
 </head>
 <body>
-  <main class="home-container">
-    <h1>Bem-vindo ao Gerenciamento de Usuários</h1>
-    <p>Escolha uma ação para começar:</p>
+  <div class="form-container">
+    <h1>Faça seu Login</h1>
 
-    <div class="home-grid">
-      <a href="./pages/cadastro.html" class="home-card">
-        <h2>Cadastro</h2>
-        <p>Crie um novo usuário.</p>
-      </a>
+    <form class="form">
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="Digite seu email">
 
-      <a href="./pages/login.html" class="home-card">
-        <h2>Login</h2>
-        <p>Acesse sua conta.</p>
-      </a>
+    <label for="senha">Senha</label>
+    <input type="password" id="senha" placeholder="Digite sua senha">
 
-      <a href="./pages/consulta.html" class="home-card">
-        <h2>Consulta</h2>
-        <p>Busque usuários cadastrados.</p>
-      </a>
+    <a href="#">Esqueci minha senha</a>
 
-      <a href="./pages/atualizacao.html" class="home-card">
-        <h2>Atualização</h2>
-        <p>Modifique dados do usuário.</p>
-      </a>
-
-      <a href="./pages/delete.html" class="home-card delete-link">
-        <h2>Deletar</h2>
-        <p>Remova um usuário.</p>
-      </a>
-    </div>
-  </main>
+  </form>
+  </div>
+  
 </body>
 </html>
