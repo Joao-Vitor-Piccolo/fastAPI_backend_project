@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+
+html, body {
+  height: 100%;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: transparent;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2%;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+}
+
+.navbar.scrolled {
+  background-color: #db8d33;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.nav-center.scrolled {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.nav-center img{
+  width: 100px;
+  height: auto;
+}
+
+.search-btn {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+#first_screen {
+  background-image: url('../assets/imgs/sao_paulo.jpeg'); /* substitua pela sua imagem */
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 10px;
+}
+
+#first_screen h1 {
+  border-radius: 20%;
+  color: rgb(238, 238, 238);
+  font-size: 3rem;
+  width: 20%;
+  margin: 8% auto;
+  padding: 10px;
+  text-align: center;
+  text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+             1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+}
+
+
+#_div_2nd{
+    height: 100vh;
+    width: 100%;
+    background-color: #131313;
+    padding: 2%;
+    display: flex;
+}
+
+#_div_3thd{
+    height: 100vh;
+    width: 100%;
+    background-color: #662626;
+}
+
+#_1_div_2nd{
+  flex: .6;
+  margin-top: 5%;
+  padding: 2%;
+  background-color: #534848;
+  width: 50%;
+  height: 50vh;
+  overflow: hidden;
+  border-radius: 2%;
+}
+
+#_2_div_2nd{
+  border-radius: 2%;
+  flex: .5;
+  margin-top: 5%;
+  margin-left: 3%;
+  padding: 2%;
+  background-color: #534848;
+  width: 25%;
+  height: 70vh;
+  background-image: url('../assets/gif/sp.gif');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
