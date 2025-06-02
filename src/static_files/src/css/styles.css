@@ -5,6 +5,7 @@
     font-family: 'Inter', sans-serif;
 }
 
+
 main{
   display: flex;
   height: 100vh;
@@ -55,6 +56,14 @@ body, html{
     transition: .5s;
 
 }
+
+.form-container p{
+    text-decoration: wavy;
+    font-size: .6rem;
+    text-align: left;
+    margin-left: 5%;
+}
+
 
 .form-container input:focus{
     font-size: 1.5rem;

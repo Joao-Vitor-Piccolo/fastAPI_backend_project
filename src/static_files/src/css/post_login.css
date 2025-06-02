@@ -1,124 +1,280 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
 
-
 html, body {
-  height: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
 }
 
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: transparent;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2%;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  z-index: 1000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: transparent;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2%;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+    margin-left: 0.9rem;
+}
+
+.navbar a:hover {
+    transition: 0.3s ease-in-out;
+    text-decoration: underline;
 }
 
 .navbar.scrolled {
-  background-color: #db8d33;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: #db8d33;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .nav-left, .nav-right {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 2;
 }
 
-.nav-center{
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
 }
 
-.nav-center img{
-  width: 100px;
-  height: auto;
+.nav-center img {
+    width: 100px;
+    height: auto;
 }
 
 .search-btn {
-  background-color: rgba(0, 0, 0, 0.1);
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-
 #first_screen {
-  background-image: url('../assets/imgs/sao_paulo.jpeg'); /* substitua pela sua imagem */
-  height: 100vh;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 10px;
+    background-image: url('../assets/imgs/sao_paulo.jpeg');
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10px;
 }
 
 #first_screen h1 {
-  border-radius: 20%;
-  color: rgb(238, 238, 238);
-  font-size: 3rem;
-  width: 20%;
-  margin: 8% auto;
-  padding: 10px;
-  text-align: center;
-  text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
-             1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+    border-radius: 20%;
+    color: rgb(238, 238, 238);
+    font-size: 3rem;
+    width: 20%;
+    margin: 8% auto;
+    padding: 10px;
+    text-align: center;
+    text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+                 1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
 }
 
-
-#_div_2nd{
+.second_screen {
     height: 100vh;
     width: 100%;
-    background-color: #131313;
+    background-color: #1d1d1d;
     padding: 2%;
-    display: flex;
 }
 
-#_div_3thd{
+.second_screen h1 {
+    color: #db8d33;
+    text-align: right;
+    margin-right: 2%;
+    font-size: 3.5rem;
+}
+
+.third_screen {
     height: 100vh;
     width: 100%;
-    background-color: #662626;
+    background-color: #1d1d1d;
 }
 
-#_1_div_2nd{
-  flex: .6;
-  margin-top: 5%;
-  padding: 2%;
-  background-color: #534848;
-  width: 50%;
-  height: 50vh;
-  overflow: hidden;
-  border-radius: 2%;
+.row {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+    justify-content: space-between;
 }
 
-#_2_div_2nd{
-  border-radius: 2%;
-  flex: .5;
-  margin-top: 5%;
-  margin-left: 3%;
-  padding: 2%;
-  background-color: #534848;
-  width: 25%;
-  height: 70vh;
-  background-image: url('../assets/gif/sp.gif');
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
+.row #_1 {
+    margin-top: 2%;
+    padding: 2%;
+    width: 50%;
+    min-height: 50%;
+    overflow-y: hidden;
+    border-radius: 2%;
+    color: rgb(160, 160, 160);
 }
 
+.row #_1:hover {
+    overflow-y: scroll;
+    transition: 0.5s;
+}
+
+.row #_2 {
+    border-radius: 1.1%;
+    padding: 2%;
+    width: 100vh;
+    background-image: url('../assets/gif/sp.gif');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.row_2 {
+    display: flex;
+    background-image: url('../assets/imgs/sao_paulo_end.jpg');
+    width: 100%;
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.row_2 #contact {
+    margin-top: 5%;
+    width: 35%;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.row_2 #contact h1 {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.row_2 #contact 
+
+.row_2 #contact p {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.contact-list li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.contact-list li a {
+    color: #db8d33;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-list li a:hover {
+    color: #e6a75a;
+    text-decoration: underline;
+}
+
+.contact-list li i {
+    margin-right: 8px;
+    color: white;
+}
+
+.contact-form {
+    width: 80%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-form label {
+    color: white;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #db8d33;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+}
+
+.contact-form input[type="text"]::placeholder,
+.contact-form input[type="email"]::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.contact-form button {
+    background-color: rgb(223, 124, 31);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+.contact-form button:hover {
+    color: black;
+    background-color: #e6a75a;
+    background-color: rgb(94, 93, 93);
+
+}

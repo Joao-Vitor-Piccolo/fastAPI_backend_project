@@ -1,43 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>História de São Paulo</title>
-  <link rel="stylesheet" href="../src/css/post_login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História de São Paulo</title>
+    <link rel="stylesheet" href="../src/css/post_login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <nav class="navbar" id="navbar">
-    <div class="nav-left">
-      <span class="menu-icon">☰</span>
-      <span class="menu-text"></span>
+    <nav class="navbar" id="navbar">
+        <div class="nav-left">
+            <a id="id_atualizar" href="#">Atualizar Conta</a>
+        </div>
+
+        <div class="nav-center">
+            <img id="logo" src="" alt="" />
+        </div>
+
+        <div class="nav-right">
+            <a id="id_contact" href="#metade">Cidade</a>
+            <a id="id_contact" href="#contact">Contatos</a>
+        </div>
+    </nav>
+
+    <div id="first_screen">
+        <h1>São Paulo</h1>
     </div>
 
-    <div class="nav-center">
-      <img id="logo" src="" alt="" />
+    <div id="metade" class="second_screen">
+        <h1>Cidade de São Paulo</h1>
+        <div class="row">
+        
+        <div id="_1">
+            <h2>São Paulo é a maior cidade do Brasil e da América do Sul, conhecida por seu ritmo acelerado, diversidade cultural e vida noturna intensa. 
+                Com mais de 12 milhões de habitantes, a cidade nunca dorme — ruas movimentadas, luzes e sons compõem seu cenário único.
+                A metrópole é um verdadeiro coração pulsante, onde diferentes histórias se cruzam todos os dias. Em cada esquina, há um contraste
+                entre o moderno e o tradicional, o luxo e a simplicidade, 
+                o silêncio de um beco e o barulho constante das avenidas.
+            </h2>
+        </div>
+
+        <div id="_2"></div>
+        </div>
     </div>
 
-    <div class="nav-right">
-      <button class="search-btn">buscar</button>
+    <div class="row_2">
+        <div id="contact">
+            <h1>Contatos:</h1>
+            <ul class="contact-list">
+                <li><i class="fas fa-envelope"></i> Email: <a href="mailto:joaovitorpiccolo015@gmail.com">joaovitorpiccolo015@gmail.com</a></li>
+                <li><i class="fas fa-phone"></i> Telefone: <a href="tel:+5511951080850">+55 (11) 95108-0850</a></li>
+                <li><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/joao-piccolo/" target="_blank">linkedin/in/joao-piccolo/</a></li>
+                <li><i class="fab fa-github"></i> GitHub: <a href="https://github.com/Joao-Vitor-Piccolo" target="_blank">github/Joao-Vitor-Piccolo</a></li>
+            </ul>
+            <form class="contact-form" action="processa_contato.php" method="POST">
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" rows="4" placeholder="Digite sua mensagem aqui..." required></textarea>
+
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+            <p>A mensagem será enviada com base no seu cadastro</p>
+        </div>
     </div>
-  </nav>
 
-  <div id="first_screen">
-    <h1>São Paulo</h1>
-  </div>
-
-  <div id="_div_2nd">
-    <h1>Terra Da Garoa</h1>
-
-    <div id="_2_div_2nd">
-    </div>
-
-  </div>
-
-  <div id="_div_3thd">
-    <h1>Resto da página</h1>
-  </div>
-
-  <script src="../src/js/script_post_login.js"></script>
+    <script src="../src/js/script_post_login.js"></script>
 </body>
 </html>
