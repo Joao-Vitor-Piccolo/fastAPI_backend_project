@@ -52,6 +52,12 @@ body, html{
     font-size: small;
     text-align: left;
     margin-top: 5%;
+    transition: .5s;
+
+}
+
+.form-container input:focus{
+    font-size: 1.5rem;
 }
 
 .form-container a:hover{
@@ -65,6 +71,8 @@ body, html{
     border: 2px solid;
     border-image: linear-gradient(90deg, rgb(133, 120, 2) 0%, rgb(121, 59, 9) 35%, rgb(143, 81, 0) 100%) 1;
     color: transparent;
+    transition: .5s;
+    color: white;
 }
 
 .form label{
@@ -92,6 +100,7 @@ body, html{
     background-color: rgb(94, 93, 93);
     cursor: pointer;
     color: black;
+    transition: .5s;
 
 }
 
@@ -103,6 +112,8 @@ body, html{
     font-size: larger;
     border: none;
     border-radius: 3%;
+    transition: .5s;
+
 }
 
 .form-container #id_botao{

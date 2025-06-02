@@ -49,15 +49,16 @@ input {
   background-color: #1e2021;
   color: #e8e6e3;
   outline: none;
-  transition: border 0.2s ease;
+  transition: all 0.5s ease;
 }
 
 input:focus {
   border-color: #d47406;
+  font-size: 1.5rem;
 }
 
 button {
-  background-color: #db8f01;
+  background-color: rgb(223, 124, 31);
   color: #ffffff;
   border: none;
   padding: 0.8rem;
@@ -68,7 +69,9 @@ button {
 }
 
 button:hover {
-  background-color: #979797;
+  color: black;
+  background-color: rgb(94, 93, 93);
+
 }
 
 .voltar {
@@ -81,7 +84,8 @@ button:hover {
 }
 
 .voltar:hover {
-  text-decoration: underline;
+  color: rgb(179, 102, 3);
+  transition: all 0.5s ease;
 }
 
 
