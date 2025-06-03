@@ -1,15 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 html, body {
     height: 100%;
     scroll-behavior: smooth;
 }
-
 .navbar {
     position: fixed;
     top: 0;
@@ -21,7 +22,16 @@ html, body {
     justify-content: space-between;
     padding: 2%;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    z-index: 1000;
+    z-index: 2;
+}
+
+.navbar #id_atualizar{
+  font-size: 2.0rem;
+}
+
+.row #_1 p{
+    font-size: 1.6rem;
+    line-height: 2.3rem;
 }
 
 .navbar a {
@@ -34,6 +44,8 @@ html, body {
 .navbar a:hover {
     transition: 0.3s ease-in-out;
     text-decoration: underline;
+    color: rgb(211, 211, 211);
+
 }
 
 .navbar.scrolled {
@@ -49,10 +61,12 @@ html, body {
 }
 
 .nav-center {
-    position: absolute;
+    margin-left: 90%;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
+    align-items: center;
 }
 
 .nav-center img {
@@ -70,6 +84,28 @@ html, body {
     cursor: pointer;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+#menu-btn {
+  background-color: transparent;
+  cursor: pointer;
+  color: white;
+  border: 0px;
+  font-size: 2rem;
+}
+
+#menu-btn:hover {
+  color: rgb(211, 211, 211);
+  cursor: pointer;
+  background-color: #ffffff00;
+  border: 0px;
+  font-size: 2rem;
+}
+
+
 #first_screen {
     background-image: url('../assets/imgs/sao_paulo.jpeg');
     height: 100vh;
@@ -81,15 +117,22 @@ html, body {
 }
 
 #first_screen h1 {
-    border-radius: 20%;
     color: rgb(238, 238, 238);
-    font-size: 3rem;
-    width: 20%;
-    margin: 8% auto;
-    padding: 10px;
+    font-size: 4rem;
+    width: auto;
+    margin: 10% auto;
+    margin-bottom: 0px;
     text-align: center;
     text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
                  1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+}
+
+#first_screen p{
+    color: rgb(238, 238, 238);
+    margin: 0% auto;
+    margin-top: 0px;
+    text-align: center;
+
 }
 
 .second_screen {
@@ -146,7 +189,7 @@ html, body {
     background-size: cover;
 }
 
-.row_2 {
+.row_3 {
     display: flex;
     background-image: url('../assets/imgs/sao_paulo_end.jpg');
     width: 100%;
@@ -161,7 +204,7 @@ html, body {
     align-items: center;
 }
 
-.row_2 #contact {
+.row_3 #contact {
     margin-top: 5%;
     width: 35%;
     height: 80%;
@@ -176,16 +219,16 @@ html, body {
     color: white;
 }
 
-.row_2 #contact h1 {
+.row_3 #contact h1 {
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     color: white;
     margin-bottom: 20px;
 }
 
-.row_2 #contact 
+.row_3 #contact 
 
-.row_2 #contact p {
+.row_3 #contact p {
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     color: white;
@@ -234,8 +277,6 @@ html, body {
     font-size: 1rem;
 }
 
-.contact-form input[type="text"],
-.contact-form input[type="email"],
 .contact-form textarea {
     width: 100%;
     padding: 10px;
@@ -247,15 +288,86 @@ html, body {
     font-size: 1rem;
 }
 
-.contact-form input[type="text"]::placeholder,
-.contact-form input[type="email"]::placeholder,
+
+
+aside {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 30%;
+    background-color: #db8d33;
+    padding: 1rem;
+    transition: left 0.7s ease-in-out;
+    z-index: 1000;
+    left: -30vw;
+}
+
+
+aside.aberto{
+    left: 0;
+}
+
+.visivel {
+  visibility: visible;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  z-index: 500;
+}
+
+.overlay.visivel {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease;
+}
+
+#nav_aside{
+    margin: 1% auto;
+    height: 100%;
+    background-color: aliceblue;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#nav_aside img{
+    margin: 1% auto;
+    height: 7vmax;
+    width: 7vmax;
+}
+
+#nav_aside a {
+    background-color: rgb(63, 51, 36);
+    color: white;
+    font-size: 1.2vmax;
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+}
+
 .contact-form textarea::placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
 
 .contact-form textarea {
     resize: vertical;
-    min-height: 80px;
+    height: 30%;
+}
+
+.contact-form textarea:focus {
+    resize: vertical;
+    height: 50%;
+    transition: .4s;
 }
 
 .contact-form button {
@@ -278,3 +390,65 @@ html, body {
     background-color: rgb(94, 93, 93);
 
 }
+
+.row_2{
+    background-color: #1d1d1d;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.row_2 .box{
+    overflow: hidden;
+    position: relative;
+    border: 2px solid;
+    border-image: linear-gradient(90deg, rgb(133, 120, 2) 0%, rgb(121, 59, 9) 35%, rgb(143, 81, 0) 100%) 1;    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 25%;
+    height: 65%;
+    margin: 3rem 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 0px 10px #362f21;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.row_2 #box-1{
+    background-image: url(../assets/imgs/liberdade.jpg);
+}
+
+.row_2 #box-2{
+    background-image: url(../assets/imgs/ibirapuera.jpg);
+}
+
+.row_2 #box-3{
+    background-image: url(../assets/imgs/metro.jpg);
+}
+
+.row_2 .box:hover{
+    width: 35%;
+    height: 80%;
+    transition: 0.3s ease-in-out;
+    --bottom: 0;
+}
+
+.row_2 .text {
+    margin-top: 20%;
+    overflow-y: scroll;
+    transition: 0.3s ease-in-out;
+    background-color: #db8d33c7;
+    position: absolute;
+    bottom: var(--bottom,-70%);
+    width: 100%;
+    height: 60%;
+    text-align: center;
+}
+

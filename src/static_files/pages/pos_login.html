@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>História de São Paulo</title>
     <link rel="stylesheet" href="../src/css/post_login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+
+
     <nav class="navbar" id="navbar">
         <div class="nav-left">
-            <a id="id_atualizar" href="#">Atualizar Conta</a>
+            <a id="menu-btn">☰</button>
         </div>
 
         <div class="nav-center">
-            <img id="logo" src="" alt="" />
+            <img id="logo" src="../src/assets/imgs/sp_icon_preta.png" alt="" />
         </div>
 
         <div class="nav-right">
@@ -23,8 +24,19 @@
         </div>
     </nav>
 
+    <aside id="aside">
+      <nav id="nav_aside">
+        <img src="../src/assets/imgs/usuario-de-perfil.png" alt="">
+        <a href="#">Atualizar conta</a>
+        <a href="#">Deletar Conta</a>
+      </nav>
+    </aside>
+    <div 
+    id="overlay" class="overlay">
+    </div>
     <div id="first_screen">
-        <h1>São Paulo</h1>
+        <h1> São Paulo</h1>
+        <p>Um site demo de Login e Cadastro</p>
     </div>
 
     <div id="metade" class="second_screen">
@@ -32,19 +44,47 @@
         <div class="row">
         
         <div id="_1">
-            <h2>São Paulo é a maior cidade do Brasil e da América do Sul, conhecida por seu ritmo acelerado, diversidade cultural e vida noturna intensa. 
+            <p>São Paulo é a maior cidade do Brasil e da América do Sul, conhecida por seu ritmo acelerado, diversidade cultural e vida noturna intensa. 
                 Com mais de 12 milhões de habitantes, a cidade nunca dorme — ruas movimentadas, luzes e sons compõem seu cenário único.
                 A metrópole é um verdadeiro coração pulsante, onde diferentes histórias se cruzam todos os dias. Em cada esquina, há um contraste
                 entre o moderno e o tradicional, o luxo e a simplicidade, 
                 o silêncio de um beco e o barulho constante das avenidas.
-            </h2>
+            </p>
         </div>
 
         <div id="_2"></div>
         </div>
     </div>
 
+
     <div class="row_2">
+        <div id="box-1" class="box">
+
+          <div class="text">
+            <p>Em São Paulo, a liberdade é mais do que um conceito — 
+              é parte do cotidiano da cidade. E nenhum lugar traduz isso tão bem quanto o bairro da Liberdade.
+              Principal reduto da cultura japonesa fora do Japão, o bairro une tradição e diversidade em cada rua, feira e festival. 
+              Suas lanternas, mercados e culinária típica oferecem uma imersão cultural única.
+              Mas a liberdade em São Paulo vai além. É possível cruzar bairros e sentir diferentes culturas em poucos minutos.
+              É arte urbana,
+              mistura de línguas e sabores do mundo todo.
+              Aqui, liberdade é mais do que um bairro — é um modo de viver.</p>
+          </div>
+          
+        </div>
+        <div id="box-2" class="box">
+          <div class="text">
+            <p>DIV 2</p>
+          </div>
+        </div>
+        <div id="box-3" class="box">
+          <div class="text">
+            <p>DIV 3</p>
+          </div>
+        </div>
+    </div>
+
+    <div class="row_3">
         <div id="contact">
             <h1>Contatos:</h1>
             <ul class="contact-list">
@@ -63,6 +103,7 @@
         </div>
     </div>
 
-    <script src="../src/js/script_post_login.js"></script>
+    <script src="../src/js/script_post_login.js">
+    </script>
 </body>
 </html>
